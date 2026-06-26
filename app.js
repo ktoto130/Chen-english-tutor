@@ -4,6 +4,44 @@ document.addEventListener('DOMContentLoaded', () => {
         lucide.createIcons();
     }
 
+    // Typewriter effect for hero title
+    const typedTextSpan = document.getElementById('typed-text');
+    if (typedTextSpan) {
+        const words = ["Confidence", "Fluency", "Natural Flow", "Ease"];
+        const typingSpeed = 100;
+        const erasingSpeed = 50;
+        const newWordDelay = 2000;
+        let wordIndex = 0;
+        let charIndex = words[wordIndex].length;
+
+        typedTextSpan.classList.add('cursor-blink');
+
+        function type() {
+            if (charIndex < words[wordIndex].length) {
+                typedTextSpan.textContent += words[wordIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingSpeed);
+            } else {
+                typedTextSpan.classList.add('cursor-blink');
+                setTimeout(erase, newWordDelay);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                typedTextSpan.textContent = words[wordIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, erasingSpeed);
+            } else {
+                typedTextSpan.classList.remove('cursor-blink');
+                wordIndex = (wordIndex + 1) % words.length;
+                setTimeout(type, typingSpeed + 500);
+            }
+        }
+
+        setTimeout(erase, newWordDelay);
+    }
+
     // Pricing Modal Lightbox
     const pricingModal = document.getElementById('pricing-modal');
     const openPricingBtn = document.getElementById('open-pricing-btn');
