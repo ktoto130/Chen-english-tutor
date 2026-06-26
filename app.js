@@ -43,21 +43,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const pricingContainer = document.querySelector('.pricing-container');
     
     if (pricingContainer && priceCards.length > 0) {
+        const setActive = (card) => {
+            priceCards.forEach(c => c.classList.remove('active'));
+            card.classList.add('active');
+            pricingContainer.classList.add('has-active');
+        };
+
         priceCards.forEach(card => {
             card.addEventListener('click', (e) => {
-                priceCards.forEach(c => c.classList.remove('active'));
-                card.classList.add('active');
-                pricingContainer.classList.add('has-active');
+                setActive(card);
             });
+            card.addEventListener('touchstart', (e) => {
+                setActive(card);
+            }, { passive: true });
         });
 
         // Clear selection on clicking outside
-        document.addEventListener('click', (e) => {
+        const handleOutsideClick = (e) => {
             if (!pricingContainer.contains(e.target)) {
                 priceCards.forEach(c => c.classList.remove('active'));
                 pricingContainer.classList.remove('has-active');
             }
-        });
+        };
+
+        document.addEventListener('click', handleOutsideClick);
+        document.addEventListener('touchstart', handleOutsideClick, { passive: true });
     }
 
     // Scroll Reveal Intersection Observer & Scroll Listener Fallback
