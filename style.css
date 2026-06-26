@@ -49,27 +49,31 @@ body {
 /* Sibling hover and active state support for pricing cards */
 .price-card {
     cursor: pointer;
-    transition: opacity 0.25s ease-out, transform 0.25s ease-out, box-shadow 0.25s ease-out, border-color 0.25s ease-out !important;
+    transition: opacity 0.25s ease-out, transform 0.25s ease-out, box-shadow 0.25s ease-out, border-color 0.25s ease-out, background-color 0.25s ease-out, outline 0.25s ease-out !important;
 }
 
-@media (hover: hover) {
-    .pricing-container:hover .price-card {
-        opacity: 0.55;
-        transform: scale(0.975);
-    }
-
-    .pricing-container .price-card:hover {
-        opacity: 1;
-        transform: scale(1.025) translateY(-2px);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        border-color: #F472B6; /* Brand accent color */
-    }
+.pricing-container:hover .price-card {
+    opacity: 0.55;
+    transform: scale(0.975);
 }
 
-/* Tap/click active state (for mobile and desktop clicks) */
+.pricing-container .price-card:hover {
+    opacity: 1 !important;
+    transform: scale(1.03) translateY(-3px) !important;
+    box-shadow: 0 20px 25px -5px rgba(244, 114, 182, 0.15), 0 10px 10px -5px rgba(244, 114, 182, 0.1) !important;
+    border-color: #F472B6 !important;
+    background-color: #FFF9FB !important;
+    outline: 2px solid #F472B6 !important;
+    outline-offset: -2px;
+}
+
+/* Tap/click active state (overrides hover and works everywhere) */
 .pricing-container.has-active .price-card {
     opacity: 0.55 !important;
     transform: scale(0.975) !important;
+    outline: none !important;
+    background-color: #FFFFFF !important;
+    border-color: rgba(226, 232, 240, 0.6) !important;
 }
 
 .pricing-container.has-active .price-card.active {
@@ -77,9 +81,10 @@ body {
     transform: scale(1.03) translateY(-3px) !important;
     box-shadow: 0 20px 25px -5px rgba(244, 114, 182, 0.15), 0 10px 10px -5px rgba(244, 114, 182, 0.1) !important;
     border-color: #F472B6 !important;
-    background-color: #FFF9FB !important; /* Soft rose tint for clear selection feedback */
+    background-color: #FFF9FB !important;
     outline: 2px solid #F472B6 !important;
     outline-offset: -2px;
 }
+
 
 
