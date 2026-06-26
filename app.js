@@ -4,42 +4,66 @@ document.addEventListener('DOMContentLoaded', () => {
         lucide.createIcons();
     }
 
-    // Typewriter effect for hero title
-    const typedTextSpan = document.getElementById('typed-text');
-    if (typedTextSpan) {
-        const words = ["Confidence", "Fluency", "Natural Flow", "Ease"];
-        const typingSpeed = 100;
-        const erasingSpeed = 50;
-        const newWordDelay = 2000;
-        let wordIndex = 0;
-        let charIndex = words[wordIndex].length;
-
-        typedTextSpan.classList.add('cursor-blink');
-
-        function type() {
-            if (charIndex < words[wordIndex].length) {
-                typedTextSpan.textContent += words[wordIndex].charAt(charIndex);
-                charIndex++;
-                setTimeout(type, typingSpeed);
+    // Typewriter effect on appearance
+    const line1 = document.getElementById('hero-line-1');
+    const line2 = document.getElementById('hero-line-2');
+    
+    if (line1 && line2) {
+        const text1 = line1.textContent.trim();
+        const text2 = line2.textContent.trim();
+        
+        line1.textContent = '';
+        line2.textContent = '';
+        
+        let charIndex1 = 0;
+        let charIndex2 = 0;
+        const typingSpeed = 35; // clean, fast-paced typing speed
+        
+        function typeLine1() {
+            if (charIndex1 < text1.length) {
+                line1.textContent += text1.charAt(charIndex1);
+                charIndex1++;
+                setTimeout(typeLine1, typingSpeed);
             } else {
-                typedTextSpan.classList.add('cursor-blink');
-                setTimeout(erase, newWordDelay);
+                line1.classList.remove('cursor-blink');
+                line1.style.borderRight = 'none';
+                line2.classList.add('cursor-blink');
+                setTimeout(typeLine2, 150);
             }
         }
-
-        function erase() {
-            if (charIndex > 0) {
-                typedTextSpan.textContent = words[wordIndex].substring(0, charIndex - 1);
-                charIndex--;
-                setTimeout(erase, erasingSpeed);
+        
+        function typeLine2() {
+            if (charIndex2 < text2.length) {
+                line2.textContent += text2.charAt(charIndex2);
+                charIndex2++;
+                setTimeout(typeLine2, typingSpeed);
             } else {
-                typedTextSpan.classList.remove('cursor-blink');
-                wordIndex = (wordIndex + 1) % words.length;
-                setTimeout(type, typingSpeed + 500);
+                setTimeout(() => {
+                    line2.classList.remove('cursor-blink');
+                    line2.style.borderRight = 'none';
+                }, 3000);
             }
         }
-
-        setTimeout(erase, newWordDelay);
+        
+        const heroTitle = document.getElementById('hero-title');
+        if (heroTitle) {
+            // Trigger animation when the element is revealed (or immediately if already visible)
+            if (heroTitle.classList.contains('reveal-visible')) {
+                line1.classList.add('cursor-blink');
+                setTimeout(typeLine1, 300);
+            } else {
+                const observer = new MutationObserver((mutations) => {
+                    mutations.forEach((mutation) => {
+                        if (mutation.attributeName === 'class' && heroTitle.classList.contains('reveal-visible')) {
+                            line1.classList.add('cursor-blink');
+                            setTimeout(typeLine1, 200);
+                            observer.disconnect();
+                        }
+                    });
+                });
+                observer.observe(heroTitle, { attributes: true });
+            }
+        }
     }
 
     // Pricing Modal Lightbox
