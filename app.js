@@ -4,7 +4,67 @@ document.addEventListener('DOMContentLoaded', () => {
         lucide.createIcons();
     }
 
-    // Modal elements
+    // Navbar scroll effect
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+            header.querySelector('nav').classList.add('shadow-md', 'bg-white/95');
+            header.querySelector('nav').classList.remove('shadow-sm', 'bg-white/80');
+        } else {
+            header.querySelector('nav').classList.add('shadow-sm', 'bg-white/80');
+            header.querySelector('nav').classList.remove('shadow-md', 'bg-white/95');
+        }
+    });
+
+    // Mobile Menu Controls
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    function openMobileMenu() {
+        mobileMenuOverlay.classList.remove('hidden');
+        // Trigger reflow
+        void mobileMenuOverlay.offsetWidth;
+        mobileMenuOverlay.classList.remove('opacity-0');
+        mobileMenuOverlay.classList.add('opacity-100');
+        
+        mobileMenu.classList.remove('translate-x-full');
+        mobileMenu.classList.add('translate-x-0');
+        document.body.classList.add('overflow-hidden');
+    }
+
+    function closeMobileMenu() {
+        mobileMenuOverlay.classList.remove('opacity-100');
+        mobileMenuOverlay.classList.add('opacity-0');
+        
+        mobileMenu.classList.remove('translate-x-0');
+        mobileMenu.classList.add('translate-x-full');
+        document.body.classList.remove('overflow-hidden');
+        
+        // Hide overlay after transition
+        setTimeout(() => {
+            mobileMenuOverlay.classList.add('hidden');
+        }, 300);
+    }
+
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', openMobileMenu);
+    }
+    if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+    }
+    if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+    }
+    
+    // Close menu when a link is clicked
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    // Modals
     const qrModal = document.getElementById('qr-modal');
     const qrModalTitle = document.getElementById('qr-modal-title');
     const qrModalDesc = document.getElementById('qr-modal-desc');
@@ -19,12 +79,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const qrData = {
         whatsapp: {
             title: 'WhatsApp Contact',
-            desc: 'Scan QR code using your WhatsApp camera to connect with Teacher Chen.',
+            desc: 'Scan QR code using WhatsApp camera to connect with Teacher Chen.',
             img: 'assets/whatsapp_qr.jpg'
         },
         wechat: {
             title: 'WeChat Contact',
-            desc: 'Scan QR code to add Teacher Chen as a friend on WeChat.',
+            desc: 'Scan QR code to add Teacher Chen on WeChat.',
             img: 'assets/wechat_qr.jpg'
         },
         line: {
@@ -34,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         kakao: {
             title: 'KakaoTalk Contact',
-            desc: 'Scan QR code with your KakaoTalk camera to add Genevieve Fabunan (chen_f).',
+            desc: 'Scan QR code with KakaoTalk to add Genevieve Fabunan (chen_f).',
             img: 'assets/kakao_qr.jpg'
         }
     };
@@ -52,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 qrModal.classList.remove('opacity-0', 'pointer-events-none');
                 qrModal.querySelector('div').classList.remove('scale-95');
                 qrModal.querySelector('div').classList.add('scale-100');
+                document.body.classList.add('overflow-hidden');
             }
         });
     });
@@ -61,14 +122,21 @@ document.addEventListener('DOMContentLoaded', () => {
         qrModal.classList.add('opacity-0', 'pointer-events-none');
         qrModal.querySelector('div').classList.remove('scale-100');
         qrModal.querySelector('div').classList.add('scale-95');
+        if (!mobileMenu.classList.contains('translate-x-0')) {
+            document.body.classList.remove('overflow-hidden');
+        }
     }
 
-    closeQrBtn.addEventListener('click', closeQrModal);
-    qrModal.addEventListener('click', (e) => {
-        if (e.target === qrModal) {
-            closeQrModal();
-        }
-    });
+    if (closeQrBtn) {
+        closeQrBtn.addEventListener('click', closeQrModal);
+    }
+    if (qrModal) {
+        qrModal.addEventListener('click', (e) => {
+            if (e.target === qrModal) {
+                closeQrModal();
+            }
+        });
+    }
 
     // Open Pricing Modal
     if (openPricingBtn) {
@@ -76,6 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
             pricingModal.classList.remove('opacity-0', 'pointer-events-none');
             pricingModal.querySelector('div').classList.remove('scale-95');
             pricingModal.querySelector('div').classList.add('scale-100');
+            document.body.classList.add('overflow-hidden');
         });
     }
 
@@ -84,6 +153,9 @@ document.addEventListener('DOMContentLoaded', () => {
         pricingModal.classList.add('opacity-0', 'pointer-events-none');
         pricingModal.querySelector('div').classList.remove('scale-100');
         pricingModal.querySelector('div').classList.add('scale-95');
+        if (!mobileMenu.classList.contains('translate-x-0')) {
+            document.body.classList.remove('overflow-hidden');
+        }
     }
 
     if (closePricingBtn) {
@@ -96,16 +168,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-    // Scroll Navbar Effect
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 20) {
-            header.querySelector('nav').classList.add('bg-edu-dark/85', 'border-slate-800/80');
-            header.querySelector('nav').classList.remove('bg-edu-card/60', 'border-slate-800/50');
-        } else {
-            header.querySelector('nav').classList.remove('bg-edu-dark/85', 'border-slate-800/80');
-            header.querySelector('nav').classList.add('bg-edu-card/60', 'border-slate-800/50');
-        }
-    });
 });

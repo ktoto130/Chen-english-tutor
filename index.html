@@ -9,7 +9,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;850&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -23,14 +23,16 @@
                     },
                     colors: {
                         edu: {
-                            dark: '#0B0F19',
-                            card: '#161F30',
-                            accent: '#EC4899', // Pink matching the pricing theme
-                            accentLight: '#F472B6',
-                            violet: '#8B5CF6',
-                            rose: '#F43F5E',
-                            cream: '#FFF5F5',
-                            warmGray: '#F9FAFB'
+                            bg: '#FCFBFA', // Soft off-white
+                            card: '#FFFFFF',
+                            primary: '#1E293B', // Dark slate for readable text
+                            accent: '#F472B6', // Warm Rose-Pink matching pricing theme
+                            accentDark: '#DB2777',
+                            accentLight: '#FCE7F3',
+                            neutralBg: '#F7F6F3',
+                            border: '#E2E8F0',
+                            peach: '#FEE2E2',
+                            peachDark: '#EF4444'
                         }
                     }
                 }
@@ -41,105 +43,131 @@
     <!-- Custom Style Sheet -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-edu-dark text-slate-100 font-sans overflow-x-hidden selection:bg-edu-accent selection:text-white">
-
-    <!-- Background Glow Blobs -->
-    <div class="fixed -top-40 -left-40 w-96 h-96 bg-edu-accent/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
-    <div class="fixed top-1/3 right-0 w-96 h-96 bg-edu-violet/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
-    <div class="fixed -bottom-40 left-1/4 w-96 h-96 bg-edu-accent/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
+<body class="bg-edu-bg text-slate-800 font-sans overflow-x-hidden selection:bg-edu-accent selection:text-white">
 
     <!-- Header / Navigation -->
-    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-12">
-        <nav class="max-w-7xl mx-auto flex items-center justify-between bg-edu-card/60 backdrop-blur-md border border-slate-800/50 py-3 px-6 rounded-full shadow-lg">
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-4 sm:px-6 md:px-12">
+        <nav class="max-w-7xl mx-auto flex items-center justify-between bg-white/80 backdrop-blur-md border border-slate-200/80 py-3 px-6 rounded-full shadow-sm transition-all duration-300">
             <!-- Logo -->
-            <a href="#" class="text-xl font-bold font-outfit tracking-wider text-white hover:text-edu-accent transition-colors flex items-center gap-2">
-                <img src="assets/avatar.jpg" alt="Teacher Chen Avatar" class="w-8 h-8 rounded-full border border-edu-accent object-cover">
-                CHEN<span class="text-edu-accent font-extrabold text-2xl leading-none">.</span>
+            <a href="#" class="text-xl font-bold font-outfit tracking-wider text-slate-900 hover:text-edu-accentDark transition-colors flex items-center gap-2">
+                <img src="assets/avatar.jpg" alt="Teacher Chen" class="w-9 h-9 rounded-full border border-edu-accent object-cover">
+                <span>CHEN<span class="text-edu-accentDark font-extrabold text-2xl leading-none">.</span></span>
             </a>
 
             <!-- Desktop Menu -->
-            <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-                <li><a href="#" class="hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-edu-accent after:transition-all hover:after:w-full">Home</a></li>
-                <li><a href="#about" class="hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-edu-accent after:transition-all hover:after:w-full">About Me</a></li>
-                <li><a href="#experience" class="hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-edu-accent after:transition-all hover:after:w-full">Specialties</a></li>
-                <li><a href="#pricing" class="hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-edu-accent after:transition-all hover:after:w-full">Packages</a></li>
-                <li><a href="#contact" class="hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-edu-accent after:transition-all hover:after:w-full">Contact</a></li>
+            <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <li><a href="#" class="hover:text-slate-900 transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-edu-accentDark after:transition-all hover:after:w-full">Home</a></li>
+                <li><a href="#about" class="hover:text-slate-900 transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-edu-accentDark after:transition-all hover:after:w-full">About Me</a></li>
+                <li><a href="#experience" class="hover:text-slate-900 transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-edu-accentDark after:transition-all hover:after:w-full">Specialties</a></li>
+                <li><a href="#pricing" class="hover:text-slate-900 transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-edu-accentDark after:transition-all hover:after:w-full">Packages</a></li>
+                <li><a href="#contact" class="hover:text-slate-900 transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-edu-accentDark after:transition-all hover:after:w-full">Contact</a></li>
             </ul>
 
-            <!-- CTA Button -->
+            <!-- Desktop CTA Button -->
             <div class="hidden md:block">
-                <a href="#contact" class="px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-edu-accent to-edu-rose hover:from-edu-accentLight hover:to-edu-rose rounded-full transition-all duration-300 shadow-md shadow-edu-accent/25 hover:shadow-edu-accent/45 transform hover:-translate-y-0.5">
+                <a href="#contact" class="px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-edu-accent to-edu-accentDark hover:shadow-md transition-all duration-300 rounded-full">
                     Book a Lesson
                 </a>
             </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-toggle" class="block md:hidden text-slate-600 hover:text-slate-900 focus:outline-none" aria-label="Toggle Menu">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
         </nav>
+
+        <!-- Mobile Side Menu -->
+        <div id="mobile-menu" class="fixed inset-y-0 right-0 w-64 bg-white shadow-2xl border-l border-slate-100 z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col p-6">
+            <!-- Close Button -->
+            <button id="mobile-menu-close" class="self-end text-slate-500 hover:text-slate-800 mb-8 focus:outline-none">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            
+            <ul class="flex flex-col gap-6 text-base font-semibold text-slate-700">
+                <li><a href="#" class="mobile-nav-link hover:text-edu-accentDark block">Home</a></li>
+                <li><a href="#about" class="mobile-nav-link hover:text-edu-accentDark block">About Me</a></li>
+                <li><a href="#experience" class="mobile-nav-link hover:text-edu-accentDark block">Specialties</a></li>
+                <li><a href="#pricing" class="mobile-nav-link hover:text-edu-accentDark block">Packages</a></li>
+                <li><a href="#contact" class="mobile-nav-link hover:text-edu-accentDark block">Contact</a></li>
+            </ul>
+
+            <div class="mt-auto">
+                <a href="#contact" class="mobile-nav-link w-full py-3 text-center text-sm font-bold uppercase tracking-wider text-white bg-gradient-to-r from-edu-accent to-edu-accentDark block rounded-xl">
+                    Book a Lesson
+                </a>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu-overlay" class="fixed inset-0 bg-slate-950/20 backdrop-blur-sm z-40 hidden opacity-0 transition-opacity duration-300"></div>
     </header>
 
     <!-- Hero Section -->
-    <section id="hero" class="relative min-h-screen flex items-center pt-28 pb-16 px-6 md:px-12 overflow-hidden z-10">
+    <section id="hero" class="relative min-h-screen flex items-center pt-28 pb-16 px-4 sm:px-6 md:px-12 bg-gradient-to-b from-rose-50/50 via-white to-edu-bg overflow-hidden z-10">
+        <!-- Floating shapes for design aesthetics -->
+        <div class="absolute top-1/4 left-10 w-64 h-64 bg-rose-200/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-amber-100/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
         <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <!-- Hero Text Content -->
             <div class="lg:col-span-7 flex flex-col justify-center space-y-6 md:space-y-8 text-center lg:text-left">
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-edu-accent/10 border border-edu-accent/25 text-edu-accentLight text-xs md:text-sm font-medium w-fit mx-auto lg:mx-0">
-                    <span class="w-2 h-2 rounded-full bg-edu-accent animate-pulse"></span>
-                    Now booking new students worldwide
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-edu-accent/10 border border-edu-accent/25 text-edu-accentDark text-xs md:text-sm font-bold w-fit mx-auto lg:mx-0">
+                    <span class="w-2 h-2 rounded-full bg-edu-accentDark animate-pulse"></span>
+                    Professional 1-on-1 English Lessons
                 </div>
                 
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold font-outfit tracking-tight leading-[1.1] text-white">
-                    Unlock Your <span class="bg-gradient-to-r from-edu-accent via-edu-rose to-edu-violet bg-clip-text text-transparent">English Potential</span> with Teacher Chen.
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-outfit tracking-tight leading-[1.15] text-slate-900">
+                    Learn English with <span class="bg-gradient-to-r from-edu-accentDark via-rose-500 to-amber-500 bg-clip-text text-transparent">Teacher Chen</span>.
                 </h1>
                 
-                <p class="text-slate-400 text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
-                    Hello! I'm Chen, a passionate online English teacher from the Philippines. With over 7 years of experience helping students globally, I build patient, interactive, and encouraging lessons tailored to your unique learning goals.
+                <p class="text-slate-600 text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
+                    Hello! My name is Chen, and I'm a passionate online English teacher from the Philippines. With over 7 years of global tutoring experience, I help students improve their speaking, listening, reading, and pronunciation in an interactive, stress-free environment.
                 </p>
 
-                <!-- CTA Actions -->
+                <!-- Actions -->
                 <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-                    <a href="#pricing" class="w-full sm:w-auto px-8 py-4 text-sm font-bold rounded-xl bg-gradient-to-r from-edu-accent to-edu-rose text-white hover:from-edu-accentLight hover:to-edu-rose transition-all duration-300 shadow-lg shadow-edu-accent/20 hover:shadow-edu-accent/40 text-center transform hover:-translate-y-0.5">
-                        Explore Lesson Packages
+                    <a href="#pricing" class="w-full sm:w-auto px-8 py-4 text-sm font-bold rounded-2xl bg-gradient-to-r from-edu-accent to-edu-accentDark text-white hover:opacity-95 shadow-md shadow-edu-accent/20 hover:shadow-lg transition-all duration-300 text-center transform hover:-translate-y-0.5">
+                        View Lesson Packages
                     </a>
-                    <a href="#contact" class="w-full sm:w-auto px-8 py-4 text-sm font-semibold rounded-xl border border-slate-700 hover:border-slate-500 bg-edu-card/40 hover:bg-edu-card/80 text-white transition-all duration-300 text-center backdrop-blur-sm">
-                        Get in Touch
+                    <a href="#contact" class="w-full sm:w-auto px-8 py-4 text-sm font-semibold rounded-2xl border border-slate-200 hover:border-slate-350 bg-white text-slate-700 hover:bg-slate-50 transition-all duration-300 text-center shadow-sm">
+                        Contact Me
                     </a>
                 </div>
 
-                <!-- Highlight Metrics -->
-                <div class="grid grid-cols-3 gap-6 pt-8 border-t border-slate-800/80 max-w-md mx-auto lg:mx-0">
+                <!-- Stats / Highlights -->
+                <div class="grid grid-cols-3 gap-6 pt-8 border-t border-slate-200 max-w-md mx-auto lg:mx-0">
                     <div>
-                        <h3 class="text-2xl md:text-3xl font-bold font-outfit text-white">7+</h3>
-                        <p class="text-xs text-slate-500 uppercase tracking-wider mt-1">Years Teaching</p>
+                        <h3 class="text-2xl md:text-3xl font-bold font-outfit text-slate-900">7+ Years</h3>
+                        <p class="text-xs text-slate-500 font-medium uppercase mt-1">Teaching Exp.</p>
                     </div>
                     <div>
-                        <h3 class="text-2xl md:text-3xl font-bold font-outfit text-white">100%</h3>
-                        <p class="text-xs text-slate-500 uppercase tracking-wider mt-1">Interactive</p>
+                        <h3 class="text-2xl md:text-3xl font-bold font-outfit text-slate-900">Interactive</h3>
+                        <p class="text-xs text-slate-500 font-medium uppercase mt-1">Class Style</p>
                     </div>
                     <div>
-                        <h3 class="text-2xl md:text-3xl font-bold font-outfit text-white">10+</h3>
-                        <p class="text-xs text-slate-500 uppercase tracking-wider mt-1">Custom Programs</p>
+                        <h3 class="text-2xl md:text-3xl font-bold font-outfit text-slate-900">1-on-1</h3>
+                        <p class="text-xs text-slate-500 font-medium uppercase mt-1">Focus Mode</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Hero Image Frame -->
+            <!-- Hero Image Column -->
             <div class="lg:col-span-5 relative flex justify-center items-center">
-                <!-- Decorative Glow Shapes -->
-                <div class="absolute w-72 h-72 md:w-96 md:h-96 rounded-full bg-edu-accent/20 filter blur-3xl -z-10 animate-[pulse_6s_infinite]"></div>
-                
-                <!-- Main Card -->
-                <div class="relative w-full max-w-sm aspect-[4/5] rounded-3xl border border-slate-700/50 p-3 bg-edu-card/30 backdrop-blur-md shadow-2xl overflow-hidden group">
-                    <div class="w-full h-full rounded-2xl overflow-hidden relative bg-slate-900 flex items-center justify-center">
-                        <img src="assets/avatar.jpg" alt="Teacher Chen Portrait" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <!-- Clean card framing -->
+                <div class="relative w-full max-w-sm aspect-square sm:aspect-[4/5] rounded-[32px] border-4 border-white p-2 bg-white shadow-xl overflow-hidden group">
+                    <div class="w-full h-full rounded-[24px] overflow-hidden relative bg-slate-50 flex items-center justify-center">
+                        <img src="assets/avatar.jpg" alt="Teacher Chen" class="w-full h-full object-cover transition-transform duration-750 group-hover:scale-103">
                     </div>
                     
-                    <!-- Floating Badge Left -->
-                    <div class="absolute -bottom-4 -left-4 bg-slate-900 border border-slate-700/80 rounded-2xl py-3 px-4 shadow-xl flex items-center gap-3 backdrop-blur-md transform -rotate-3 hover:rotate-0 transition-transform duration-300">
-                        <div class="w-10 h-10 rounded-xl bg-edu-accent/20 flex items-center justify-center text-edu-accent font-bold">
-                            <i data-lucide="award" class="w-5 h-5"></i>
+                    <!-- Floating Badge -->
+                    <div class="absolute bottom-6 left-6 bg-white border border-slate-100 rounded-2xl py-3 px-4 shadow-lg flex items-center gap-3 backdrop-blur-md">
+                        <div class="w-9 h-9 rounded-xl bg-rose-50 flex items-center justify-center text-edu-accentDark font-bold">
+                            <i data-lucide="check-circle" class="w-5 h-5"></i>
                         </div>
                         <div>
-                            <p class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Quality</p>
-                            <p class="text-xs font-bold text-white">Certified Tutor</p>
+                            <p class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Native Support</p>
+                            <p class="text-xs font-bold text-slate-800">English Expert</p>
                         </div>
                     </div>
                 </div>
@@ -149,35 +177,34 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-24 px-6 md:px-12 bg-edu-card/20 border-y border-slate-900 z-10 relative">
+    <section id="about" class="py-24 px-4 sm:px-6 md:px-12 bg-white border-y border-slate-100 z-10 relative">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            <!-- Graphic Left (Avatar / Credentials Card) -->
+            <!-- Graphics Card Left -->
             <div class="lg:col-span-5 relative">
-                <div class="absolute inset-0 bg-gradient-to-tr from-edu-accent to-edu-rose opacity-20 blur-2xl -z-10"></div>
-                <div class="relative rounded-3xl border border-slate-800 p-8 shadow-xl max-w-md mx-auto bg-slate-950/80 backdrop-blur-sm space-y-6 text-center lg:text-left">
-                    <img src="assets/avatar.jpg" alt="Chen Avatar" class="w-24 h-24 rounded-full mx-auto lg:mx-0 border-2 border-edu-accent object-cover">
+                <div class="relative rounded-3xl border border-slate-100 p-8 shadow-md max-w-md mx-auto bg-edu-bg space-y-6 text-center lg:text-left">
+                    <img src="assets/avatar.jpg" alt="Chen Avatar" class="w-24 h-24 rounded-full mx-auto lg:mx-0 border-4 border-white shadow-md object-cover">
                     <div>
-                        <h3 class="text-xl font-bold font-outfit text-white">Teacher Chen</h3>
-                        <p class="text-xs text-edu-accentLight font-medium">ESL Professional • Philippines</p>
+                        <h3 class="text-xl font-bold font-outfit text-slate-900">Teacher Chen</h3>
+                        <p class="text-xs text-edu-accentDark font-semibold uppercase tracking-wider">Online ESL Instructor</p>
                     </div>
                     
-                    <p class="text-slate-400 text-sm font-light leading-relaxed">
-                        "I believe that learning English should be fun, interactive, and comfortable. My goal is to build your confidence so you can speak fluently in any setting."
+                    <p class="text-slate-600 text-sm font-light leading-relaxed">
+                        "For more than seven years, I've taught students from different countries and backgrounds, helping them improve their speaking, listening, reading, and pronunciation skills."
                     </p>
                     
-                    <div class="border-t border-slate-800/80 pt-4 flex justify-around text-center">
+                    <div class="border-t border-slate-200/80 pt-4 flex justify-around text-center">
                         <div>
-                            <span class="text-lg font-bold text-white">7+</span>
-                            <p class="text-[10px] text-slate-500 uppercase">Years Exp.</p>
+                            <span class="text-lg font-bold text-slate-800">7+</span>
+                            <p class="text-[10px] text-slate-400 uppercase font-semibold">Years Active</p>
                         </div>
                         <div>
-                            <span class="text-lg font-bold text-white">1-on-1</span>
-                            <p class="text-[10px] text-slate-500 uppercase">Focus</p>
+                            <span class="text-lg font-bold text-slate-800">Interactive</span>
+                            <p class="text-[10px] text-slate-400 uppercase font-semibold">Method</p>
                         </div>
                         <div>
-                            <span class="text-lg font-bold text-white">Global</span>
-                            <p class="text-[10px] text-slate-500 uppercase">Students</p>
+                            <span class="text-lg font-bold text-slate-800">Kids-Adults</span>
+                            <p class="text-[10px] text-slate-400 uppercase font-semibold">Students</p>
                         </div>
                     </div>
                 </div>
@@ -186,31 +213,39 @@
             <!-- Text Content Right -->
             <div class="lg:col-span-7 flex flex-col justify-center space-y-6">
                 <div class="text-left">
-                    <p class="text-xs text-edu-accent font-semibold tracking-widest uppercase mb-2">ABOUT ME</p>
-                    <h2 class="text-3xl md:text-5xl font-bold font-outfit text-white">A Patient & Encouraging Guide</h2>
+                    <p class="text-xs text-edu-accentDark font-bold tracking-widest uppercase mb-2">ABOUT THE INSTRUCTOR</p>
+                    <h2 class="text-3xl md:text-5xl font-bold font-outfit text-slate-900">Encouraging & Patient Teaching Style</h2>
                 </div>
                 
-                <p class="text-slate-400 leading-relaxed font-light text-base md:text-lg">
-                    For more than seven years, I've taught students from different countries and backgrounds, helping them improve their speaking, listening, reading, and pronunciation skills. 
+                <p class="text-slate-650 leading-relaxed font-light text-base md:text-lg">
+                    My teaching style is patient, encouraging, and highly interactive. I focus on creating a comfortable environment where students feel confident using English. 
                 </p>
-                
-                <p class="text-slate-400 leading-relaxed font-light">
-                    My teaching style is interactive, positive, and encouraging. I focus on creating a comfortable environment where students feel confident using English. Whether you are a young child learning the alphabet or a business professional prepping for a presentation, I customize my sessions to match your pace and interests.
+                <p class="text-slate-600 leading-relaxed font-light text-sm md:text-base">
+                    Every student learns differently. That's why I adapt my lessons to fit your specific needs, whether it's through interactive materials, Callan Reflex exercises, or VOA reading modules. I'm dedicated to helping you achieve fluency, clear pronunciation, and natural grammar skills step-by-step.
                 </p>
 
-                <!-- Core Methodology -->
+                <!-- Core Pillars -->
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
-                    <div class="p-4 rounded-xl bg-edu-card/50 border border-slate-800/60">
-                        <span class="text-edu-accent font-bold text-lg font-outfit block mb-1">Patient</span>
-                        <p class="text-xs text-slate-500">Perfect for beginners and kids who need a relaxed pace.</p>
+                    <div class="p-4.5 rounded-2xl bg-edu-bg border border-slate-100">
+                        <div class="w-8 h-8 rounded-lg bg-pink-100 flex items-center justify-center text-edu-accentDark mb-2">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </div>
+                        <span class="text-slate-900 font-bold text-sm font-outfit block mb-1">Patient & Warm</span>
+                        <p class="text-xs text-slate-500">I explain complex terms gently and celebrate every small achievement.</p>
                     </div>
-                    <div class="p-4 rounded-xl bg-edu-card/50 border border-slate-800/60">
-                        <span class="text-edu-accentLight font-bold text-lg font-outfit block mb-1">Interactive</span>
-                        <p class="text-xs text-slate-500">Engaging conversation topics, VOA news, and quick feedback.</p>
+                    <div class="p-4.5 rounded-2xl bg-edu-bg border border-slate-100">
+                        <div class="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center text-amber-600 mb-2">
+                            <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        </div>
+                        <span class="text-slate-900 font-bold text-sm font-outfit block mb-1">Interactive lessons</span>
+                        <p class="text-xs text-slate-500">Interactive questions and feedback tools keep classes lively.</p>
                     </div>
-                    <div class="p-4 rounded-xl bg-edu-card/50 border border-slate-800/60">
-                        <span class="text-edu-rose font-bold text-lg font-outfit block mb-1">Confidence</span>
-                        <p class="text-xs text-slate-500">Focus on pronunciation and vocabulary to make you feel like a native.</p>
+                    <div class="p-4.5 rounded-2xl bg-edu-bg border border-slate-100">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-600 mb-2">
+                            <i data-lucide="shield" class="w-4 h-4"></i>
+                        </div>
+                        <span class="text-slate-900 font-bold text-sm font-outfit block mb-1">Comfortable space</span>
+                        <p class="text-xs text-slate-500">No stress about mistakes. Errors are just steps toward fluency.</p>
                     </div>
                 </div>
             </div>
@@ -218,215 +253,226 @@
     </section>
 
     <!-- Specialties / Experience Section -->
-    <section id="experience" class="py-24 px-6 md:px-12 z-10 relative">
+    <section id="experience" class="py-24 px-4 sm:px-6 md:px-12 z-10 relative">
         <div class="max-w-7xl mx-auto">
             <!-- Section Header -->
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <p class="text-xs text-edu-accent font-semibold tracking-widest uppercase">MY SPECIALTIES</p>
-                <h2 class="text-3xl md:text-5xl font-bold font-outfit text-white">Experience & Lesson Programs</h2>
-                <p class="text-slate-400 font-light max-w-xl mx-auto">Here are some of the specialized programs and audiences I have extensive experience teaching:</p>
+                <p class="text-xs text-edu-accentDark font-bold tracking-widest uppercase">WHAT I TEACH</p>
+                <h2 class="text-3xl md:text-5xl font-bold font-outfit text-slate-900">Programs & Specialties</h2>
+                <p class="text-slate-650 font-light max-w-xl mx-auto">I offer structured, customized courses to help learners achieve their unique goals.</p>
             </div>
 
             <!-- Program Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Kids & Teenagers -->
-                <div class="p-6 rounded-2xl border border-slate-800/60 bg-edu-card/30 backdrop-blur-sm hover:border-edu-accent/50 transition-all duration-300">
-                    <div class="w-10 h-10 rounded-xl bg-edu-accent/10 border border-edu-accent/20 flex items-center justify-center text-edu-accent mb-4">
+                <div class="p-6 rounded-2xl border border-slate-200/80 bg-white hover:shadow-md transition-all duration-300 flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-xl bg-pink-50 border border-pink-100 flex items-center justify-center text-edu-accentDark shrink-0">
                         <i data-lucide="smile" class="w-5 h-5"></i>
                     </div>
-                    <h3 class="text-lg font-bold font-outfit text-white mb-2">Kids & Teenagers</h3>
-                    <p class="text-slate-400 text-sm font-light">Fun, gamified lessons to keep young minds engaged and build early pronunciation habits.</p>
+                    <div>
+                        <h3 class="text-base font-bold font-outfit text-slate-900 mb-1">Kids & Teenagers</h3>
+                        <p class="text-slate-500 text-xs leading-relaxed">Engaging classes for young learners focusing on vocabulary, simple dialogs, and fun phonics exercises.</p>
+                    </div>
                 </div>
 
                 <!-- Adults & Advanced Learners -->
-                <div class="p-6 rounded-2xl border border-slate-800/60 bg-edu-card/30 backdrop-blur-sm hover:border-edu-accent/50 transition-all duration-300">
-                    <div class="w-10 h-10 rounded-xl bg-edu-accent/10 border border-edu-accent/20 flex items-center justify-center text-edu-accent mb-4">
+                <div class="p-6 rounded-2xl border border-slate-200/80 bg-white hover:shadow-md transition-all duration-300 flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-xl bg-pink-50 border border-pink-100 flex items-center justify-center text-edu-accentDark shrink-0">
                         <i data-lucide="graduation-cap" class="w-5 h-5"></i>
                     </div>
-                    <h3 class="text-lg font-bold font-outfit text-white mb-2">Beginner to Advanced</h3>
-                    <p class="text-slate-400 text-sm font-light">Custom coursework suited for absolute beginners or advanced speakers looking to refine nuances.</p>
+                    <div>
+                        <h3 class="text-base font-bold font-outfit text-slate-900 mb-1">Beginner to Advanced</h3>
+                        <p class="text-slate-500 text-xs leading-relaxed">Personalized curriculum matching your starting point, scaling smoothly up to high-fluency targets.</p>
+                    </div>
                 </div>
 
                 <!-- Daily English -->
-                <div class="p-6 rounded-2xl border border-slate-800/60 bg-edu-card/30 backdrop-blur-sm hover:border-edu-accent/50 transition-all duration-300">
-                    <div class="w-10 h-10 rounded-xl bg-edu-accent/10 border border-edu-accent/20 flex items-center justify-center text-edu-accent mb-4">
-                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                <div class="p-6 rounded-2xl border border-slate-200/80 bg-white hover:shadow-md transition-all duration-300 flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-xl bg-pink-50 border border-pink-100 flex items-center justify-center text-edu-accentDark shrink-0">
+                        <i data-lucide="message-square" class="w-5 h-5"></i>
                     </div>
-                    <h3 class="text-lg font-bold font-outfit text-white mb-2">Daily Conversational English</h3>
-                    <p class="text-slate-400 text-sm font-light">Real-life dialogue prep, casual interactions, and travel preparation to build effortless speech.</p>
+                    <div>
+                        <h3 class="text-base font-bold font-outfit text-slate-900 mb-1">Daily Conversational English</h3>
+                        <p class="text-slate-500 text-xs leading-relaxed">Everyday phrases, travel discussion, listening comprehension, and pronunciation tuning.</p>
+                    </div>
                 </div>
 
                 <!-- Business English -->
-                <div class="p-6 rounded-2xl border border-slate-800/60 bg-edu-card/30 backdrop-blur-sm hover:border-edu-accent/50 transition-all duration-300">
-                    <div class="w-10 h-10 rounded-xl bg-edu-accent/10 border border-edu-accent/20 flex items-center justify-center text-edu-accent mb-4">
+                <div class="p-6 rounded-2xl border border-slate-200/80 bg-white hover:shadow-md transition-all duration-300 flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-xl bg-pink-50 border border-pink-100 flex items-center justify-center text-edu-accentDark shrink-0">
                         <i data-lucide="briefcase" class="w-5 h-5"></i>
                     </div>
-                    <h3 class="text-lg font-bold font-outfit text-white mb-2">Business English</h3>
-                    <p class="text-slate-400 text-sm font-light">Email writing, formal vocabulary, job interview training, and workplace culture communication prep.</p>
+                    <div>
+                        <h3 class="text-base font-bold font-outfit text-slate-900 mb-1">Business English</h3>
+                        <p class="text-slate-500 text-xs leading-relaxed">Email communication, negotiation language, corporate vocab, and preparation for job interviews.</p>
+                    </div>
                 </div>
 
                 <!-- Callan Method -->
-                <div class="p-6 rounded-2xl border border-slate-800/60 bg-edu-card/30 backdrop-blur-sm hover:border-edu-accent/50 transition-all duration-300">
-                    <div class="w-10 h-10 rounded-xl bg-edu-accent/10 border border-edu-accent/20 flex items-center justify-center text-edu-accent mb-4">
+                <div class="p-6 rounded-2xl border border-slate-200/80 bg-white hover:shadow-md transition-all duration-300 flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-xl bg-pink-50 border border-pink-100 flex items-center justify-center text-edu-accentDark shrink-0">
                         <i data-lucide="zap" class="w-5 h-5"></i>
                     </div>
-                    <h3 class="text-lg font-bold font-outfit text-white mb-2">Callan Method</h3>
-                    <p class="text-slate-400 text-sm font-light">Fast-paced, question-and-answer reflex system designed to get you thinking directly in English.</p>
+                    <div>
+                        <h3 class="text-base font-bold font-outfit text-slate-900 mb-1">Callan Method</h3>
+                        <p class="text-slate-500 text-xs leading-relaxed">Dynamic, rapid reflex Q&A classes that train you to reply instantly without translating in your head.</p>
+                    </div>
                 </div>
 
-                <!-- Eiken & Exam Prep -->
-                <div class="p-6 rounded-2xl border border-slate-800/60 bg-edu-card/30 backdrop-blur-sm hover:border-edu-accent/50 transition-all duration-300">
-                    <div class="w-10 h-10 rounded-xl bg-edu-accent/10 border border-edu-accent/20 flex items-center justify-center text-edu-accent mb-4">
+                <!-- Eiken & Prep -->
+                <div class="p-6 rounded-2xl border border-slate-200/80 bg-white hover:shadow-md transition-all duration-300 flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-xl bg-pink-50 border border-pink-100 flex items-center justify-center text-edu-accentDark shrink-0">
                         <i data-lucide="file-text" class="w-5 h-5"></i>
                     </div>
-                    <h3 class="text-lg font-bold font-outfit text-white mb-2">Eiken Preparation</h3>
-                    <p class="text-slate-400 text-sm font-light">Targeted preparation for Eiken examinations, focusing on writing, vocabulary, and mock interviews.</p>
+                    <div>
+                        <h3 class="text-base font-bold font-outfit text-slate-900 mb-1">Eiken Preparation</h3>
+                        <p class="text-slate-500 text-xs leading-relaxed">Exam-specific preparation focusing on vocab drills, writing exercises, and mock interview setups.</p>
+                    </div>
                 </div>
             </div>
             
-            <!-- Additional Specialties Note -->
-            <div class="mt-8 text-center text-slate-500 text-sm flex justify-center items-center gap-2">
-                <i data-lucide="info" class="w-4 h-4 text-edu-accent"></i>
-                Also offering VOA-based lessons and interactive reading modules.
+            <div class="mt-8 text-center text-slate-500 text-xs md:text-sm flex justify-center items-center gap-2">
+                <i data-lucide="info" class="w-4 h-4 text-edu-accentDark"></i>
+                Also providing custom lessons based on VOA reading exercises and grammar sheets.
             </div>
         </div>
     </section>
 
     <!-- Pricing / Packages Section -->
-    <section id="pricing" class="py-24 px-6 md:px-12 bg-edu-card/20 border-y border-slate-900 z-10 relative">
+    <section id="pricing" class="py-24 px-4 sm:px-6 md:px-12 bg-white border-y border-slate-100 z-10 relative">
         <div class="max-w-7xl mx-auto">
             <!-- Header -->
             <div class="max-w-3xl mx-auto text-center mb-16 space-y-4">
-                <p class="text-xs text-edu-accent font-semibold tracking-widest uppercase">AFFORDABLE RATES</p>
-                <h2 class="text-3xl md:text-5xl font-bold font-outfit text-white">Lesson Packages</h2>
-                <p class="text-slate-400 font-light max-w-xl mx-auto">Choose a plan that fits your schedule. Packages are designed to give you structured, regular practice at a discounted rate.</p>
+                <p class="text-xs text-edu-accentDark font-bold tracking-widest uppercase">SIMPLE RATES</p>
+                <h2 class="text-3xl md:text-5xl font-bold font-outfit text-slate-900">Lesson Packages</h2>
+                <p class="text-slate-650 font-light max-w-xl mx-auto">Unlock discounts by choosing structured, multi-lesson packages. No hidden fees.</p>
             </div>
 
             <!-- Dynamic Pricing Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-5xl mx-auto mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-5xl mx-auto mb-12">
                 <!-- 20 Lessons -->
-                <div class="p-8 rounded-3xl border border-slate-800 bg-edu-card/40 flex flex-col justify-between hover:border-edu-accent/40 transition-all duration-300">
+                <div class="p-8 rounded-3xl border border-slate-200 bg-white flex flex-col justify-between hover:shadow-lg transition-all duration-300">
                     <div>
                         <div class="flex justify-between items-start mb-6">
                             <div>
-                                <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Package 1</span>
-                                <h3 class="text-2xl font-bold font-outfit text-white mt-1">20 Lessons</h3>
+                                <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Package 1</span>
+                                <h3 class="text-2xl font-bold font-outfit text-slate-800 mt-1">20 Lessons</h3>
                             </div>
-                            <span class="px-2.5 py-1 text-[10px] font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 rounded-full">5% OFF</span>
+                            <span class="px-2.5 py-1 text-[10px] font-bold text-emerald-600 bg-emerald-50 border border-emerald-100 rounded-full">5% OFF</span>
                         </div>
                         
-                        <div class="flex items-baseline gap-1 pb-6 border-b border-slate-850 mb-6">
-                            <span class="text-4xl font-bold font-outfit text-white">$76</span>
-                            <span class="text-xs text-slate-500 font-medium">/ pack (was <span class="line-through">$80</span>)</span>
+                        <div class="flex items-baseline gap-1 pb-6 border-b border-slate-100 mb-6">
+                            <span class="text-4xl font-bold font-outfit text-slate-900">$76</span>
+                            <span class="text-xs text-slate-500 font-medium">/ pack (was <span class="line-through text-slate-400">$80</span>)</span>
                         </div>
                         
-                        <ul class="space-y-3 text-sm text-slate-400 mb-8">
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-edu-accent shrink-0"></i>$3.80 per lesson</li>
-                            <li class="flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4 text-edu-accent shrink-0"></i>Valid for 30 days</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-edu-accent shrink-0"></i>1-on-1 Interactive classes</li>
+                        <ul class="space-y-3 text-sm text-slate-600 mb-8">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-edu-accentDark shrink-0"></i>$3.80 per lesson</li>
+                            <li class="flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4 text-edu-accentDark shrink-0"></i>Valid for 30 days</li>
+                            <li class="flex items-center gap-2"><i data-lucide="video" class="w-4 h-4 text-edu-accentDark shrink-0"></i>1-on-1 Interactive format</li>
                         </ul>
                     </div>
-                    <a href="#contact" class="w-full py-3 rounded-xl border border-slate-800 bg-edu-card hover:bg-edu-accent hover:border-edu-accent text-white text-xs font-semibold uppercase tracking-wider text-center transition-all duration-300 block">
-                        Choose 20 Lessons
+                    <a href="#contact" class="w-full py-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-55 hover:text-slate-900 text-slate-700 text-xs font-bold uppercase tracking-wider text-center transition-all duration-300 block">
+                        Get 20 Lessons
                     </a>
                 </div>
 
                 <!-- 30 Lessons -->
-                <div class="p-8 rounded-3xl border-2 border-edu-accent bg-edu-card/80 flex flex-col justify-between relative hover:border-edu-accentLight transition-all duration-300">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-edu-accent text-white px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-widest">
+                <div class="p-8 rounded-3xl border-2 border-edu-accent bg-white flex flex-col justify-between relative hover:shadow-lg transition-all duration-300">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-edu-accentDark text-white px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-widest">
                         Most Popular
                     </div>
                     <div>
                         <div class="flex justify-between items-start mb-6">
                             <div>
-                                <span class="text-[10px] text-edu-accentLight font-bold uppercase tracking-wider">Package 2</span>
-                                <h3 class="text-2xl font-bold font-outfit text-white mt-1">30 Lessons</h3>
+                                <span class="text-[10px] text-edu-accentDark font-bold uppercase tracking-wider">Package 2</span>
+                                <h3 class="text-2xl font-bold font-outfit text-slate-800 mt-1">30 Lessons</h3>
                             </div>
-                            <span class="px-2.5 py-1 text-[10px] font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 rounded-full">8% OFF</span>
+                            <span class="px-2.5 py-1 text-[10px] font-bold text-emerald-600 bg-emerald-50 border border-emerald-100 rounded-full">8% OFF</span>
                         </div>
                         
-                        <div class="flex items-baseline gap-1 pb-6 border-b border-slate-850 mb-6">
-                            <span class="text-4xl font-bold font-outfit text-white">$110.40</span>
-                            <span class="text-xs text-slate-500 font-medium">/ pack (was <span class="line-through">$120</span>)</span>
+                        <div class="flex items-baseline gap-1 pb-6 border-b border-slate-100 mb-6">
+                            <span class="text-4xl font-bold font-outfit text-slate-900">$110.40</span>
+                            <span class="text-xs text-slate-500 font-medium">/ pack (was <span class="line-through text-slate-400">$120</span>)</span>
                         </div>
                         
-                        <ul class="space-y-3 text-sm text-slate-300 mb-8">
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-edu-accent shrink-0"></i>$3.68 per lesson</li>
-                            <li class="flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4 text-edu-accent shrink-0"></i>Valid for 40 days</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-edu-accent shrink-0"></i>1-on-1 Interactive classes</li>
+                        <ul class="space-y-3 text-sm text-slate-600 mb-8">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-edu-accentDark shrink-0"></i>$3.68 per lesson</li>
+                            <li class="flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4 text-edu-accentDark shrink-0"></i>Valid for 40 days</li>
+                            <li class="flex items-center gap-2"><i data-lucide="video" class="w-4 h-4 text-edu-accentDark shrink-0"></i>1-on-1 Interactive format</li>
                         </ul>
                     </div>
-                    <a href="#contact" class="w-full py-3 rounded-xl bg-gradient-to-r from-edu-accent to-edu-rose hover:from-edu-accentLight hover:to-edu-rose text-white text-xs font-semibold uppercase tracking-wider text-center transition-all duration-300 shadow-md shadow-edu-accent/20 block">
-                        Choose 30 Lessons
+                    <a href="#contact" class="w-full py-3 rounded-xl bg-gradient-to-r from-edu-accent to-edu-accentDark text-white text-xs font-bold uppercase tracking-wider text-center transition-all duration-300 block">
+                        Get 30 Lessons
                     </a>
                 </div>
 
                 <!-- 40 Lessons -->
-                <div class="p-8 rounded-3xl border border-slate-800 bg-edu-card/40 flex flex-col justify-between hover:border-edu-accent/40 transition-all duration-300">
+                <div class="p-8 rounded-3xl border border-slate-200 bg-white flex flex-col justify-between hover:shadow-lg transition-all duration-300">
                     <div>
                         <div class="flex justify-between items-start mb-6">
                             <div>
-                                <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Package 3</span>
-                                <h3 class="text-2xl font-bold font-outfit text-white mt-1">40 Lessons</h3>
+                                <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Package 3</span>
+                                <h3 class="text-2xl font-bold font-outfit text-slate-800 mt-1">40 Lessons</h3>
                             </div>
-                            <span class="px-2.5 py-1 text-[10px] font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 rounded-full">10% OFF</span>
+                            <span class="px-2.5 py-1 text-[10px] font-bold text-emerald-600 bg-emerald-50 border border-emerald-100 rounded-full">10% OFF</span>
                         </div>
                         
-                        <div class="flex items-baseline gap-1 pb-6 border-b border-slate-850 mb-6">
-                            <span class="text-4xl font-bold font-outfit text-white">$144</span>
-                            <span class="text-xs text-slate-500 font-medium">/ pack (was <span class="line-through">$160</span>)</span>
+                        <div class="flex items-baseline gap-1 pb-6 border-b border-slate-100 mb-6">
+                            <span class="text-4xl font-bold font-outfit text-slate-900">$144</span>
+                            <span class="text-xs text-slate-500 font-medium">/ pack (was <span class="line-through text-slate-400">$160</span>)</span>
                         </div>
                         
-                        <ul class="space-y-3 text-sm text-slate-400 mb-8">
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-edu-accent shrink-0"></i>$3.60 per lesson</li>
-                            <li class="flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4 text-edu-accent shrink-0"></i>Valid for 50 days</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-edu-accent shrink-0"></i>1-on-1 Interactive classes</li>
+                        <ul class="space-y-3 text-sm text-slate-600 mb-8">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-edu-accentDark shrink-0"></i>$3.60 per lesson</li>
+                            <li class="flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4 text-edu-accentDark shrink-0"></i>Valid for 50 days</li>
+                            <li class="flex items-center gap-2"><i data-lucide="video" class="w-4 h-4 text-edu-accentDark shrink-0"></i>1-on-1 Interactive format</li>
                         </ul>
                     </div>
-                    <a href="#contact" class="w-full py-3 rounded-xl border border-slate-800 bg-edu-card hover:bg-edu-accent hover:border-edu-accent text-white text-xs font-semibold uppercase tracking-wider text-center transition-all duration-300 block">
-                        Choose 40 Lessons
+                    <a href="#contact" class="w-full py-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-55 hover:text-slate-900 text-slate-700 text-xs font-bold uppercase tracking-wider text-center transition-all duration-300 block">
+                        Get 40 Lessons
                     </a>
                 </div>
             </div>
 
-            <!-- Original Image Fallback / Lightbox trigger -->
+            <!-- Lightbox trigger -->
             <div class="text-center mb-16">
-                <button id="open-pricing-btn" class="inline-flex items-center gap-2 text-sm text-edu-accentLight hover:text-white transition-colors duration-200 bg-edu-card/40 border border-slate-800/80 px-5 py-2.5 rounded-full hover:bg-edu-card/85">
-                    <i data-lucide="image" class="w-4 h-4"></i>
+                <button id="open-pricing-btn" class="inline-flex items-center gap-2 text-sm text-slate-650 hover:text-slate-900 transition-colors duration-200 bg-slate-50 border border-slate-200 px-5 py-2.5 rounded-full hover:bg-slate-100 font-medium shadow-sm">
+                    <i data-lucide="image" class="w-4 h-4 text-edu-accentDark"></i>
                     View Original Pricing Chart & Policies
                 </button>
             </div>
 
-            <!-- Package Policy Grid -->
-            <div class="max-w-4xl mx-auto bg-edu-card/25 border border-slate-800/80 p-8 rounded-3xl backdrop-blur-sm">
-                <h4 class="text-lg font-bold font-outfit text-white text-center mb-6">Package Policies</h4>
+            <!-- Policies Grid -->
+            <div class="max-w-4xl mx-auto bg-edu-bg border border-slate-200 p-8 rounded-3xl shadow-sm">
+                <h4 class="text-lg font-bold font-outfit text-slate-800 text-center mb-6">Package Policies</h4>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                     <div class="space-y-2 flex flex-col items-center">
-                        <div class="w-10 h-10 rounded-full bg-edu-accent/10 flex items-center justify-center text-edu-accent">
+                        <div class="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center text-edu-accentDark">
                             <i data-lucide="calendar-days" class="w-5 h-5"></i>
                         </div>
-                        <h5 class="text-xs font-bold text-white uppercase tracking-wider">Use Window</h5>
+                        <h5 class="text-xs font-bold text-slate-700 uppercase tracking-wider">Use Period</h5>
                         <p class="text-xs text-slate-500 leading-relaxed">Lesson packages must be used within their validity period.</p>
                     </div>
                     <div class="space-y-2 flex flex-col items-center">
-                        <div class="w-10 h-10 rounded-full bg-edu-accent/10 flex items-center justify-center text-edu-accent">
+                        <div class="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center text-edu-accentDark">
                             <i data-lucide="play" class="w-5 h-5"></i>
                         </div>
-                        <h5 class="text-xs font-bold text-white uppercase tracking-wider">Start Date</h5>
+                        <h5 class="text-xs font-bold text-slate-700 uppercase tracking-wider">Start Date</h5>
                         <p class="text-xs text-slate-500 leading-relaxed">Validity starts on the date of purchase.</p>
                     </div>
                     <div class="space-y-2 flex flex-col items-center">
-                        <div class="w-10 h-10 rounded-full bg-edu-accent/10 flex items-center justify-center text-edu-accent">
+                        <div class="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center text-edu-accentDark">
                             <i data-lucide="hourglass" class="w-5 h-5"></i>
                         </div>
-                        <h5 class="text-xs font-bold text-white uppercase tracking-wider">Expiration</h5>
+                        <h5 class="text-xs font-bold text-slate-700 uppercase tracking-wider">Expiration</h5>
                         <p class="text-xs text-slate-500 leading-relaxed">Unused lessons expire after the package validity period.</p>
                     </div>
                     <div class="space-y-2 flex flex-col items-center">
-                        <div class="w-10 h-10 rounded-full bg-edu-accent/10 flex items-center justify-center text-edu-accent">
+                        <div class="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center text-edu-accentDark">
                             <i data-lucide="refresh-cw" class="w-5 h-5"></i>
                         </div>
-                        <h5 class="text-xs font-bold text-white uppercase tracking-wider">Rescheduling</h5>
+                        <h5 class="text-xs font-bold text-slate-700 uppercase tracking-wider">Rescheduling</h5>
                         <p class="text-xs text-slate-500 leading-relaxed">Rescheduling is available with advance notice.</p>
                     </div>
                 </div>
@@ -435,71 +481,68 @@
     </section>
 
     <!-- Contact & Connect Section -->
-    <section id="contact" class="py-24 px-6 md:px-12 z-10 relative">
+    <section id="contact" class="py-24 px-4 sm:px-6 md:px-12 z-10 relative">
         <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 bg-edu-card/30 backdrop-blur-md border border-slate-800/80 rounded-[40px] p-8 md:p-16 shadow-2xl relative overflow-hidden">
-                
-                <!-- Background Glow -->
-                <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-edu-accent/10 rounded-full blur-[80px] -z-10"></div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 bg-white border border-slate-200/80 rounded-[32px] p-6 sm:p-8 md:p-16 shadow-xl relative overflow-hidden">
                 
                 <!-- Contact Intro Left -->
                 <div class="lg:col-span-5 flex flex-col justify-between space-y-8">
                     <div class="space-y-4">
-                        <p class="text-xs text-edu-accent font-semibold tracking-widest uppercase">LET'S CONNECT</p>
-                        <h2 class="text-3xl md:text-5xl font-bold font-outfit text-white leading-tight">Start Learning Today.</h2>
-                        <p class="text-slate-400 font-light leading-relaxed">Scan a QR code to message me on your favorite chat app, send me an email, or find me on Instagram/Threads. I will get back to you shortly to schedule your trial lesson!</p>
+                        <p class="text-xs text-edu-accentDark font-bold tracking-widest uppercase">LET'S CONNECT</p>
+                        <h2 class="text-3xl md:text-5xl font-bold font-outfit text-slate-900 leading-tight">Start Learning Today.</h2>
+                        <p class="text-slate-500 font-light leading-relaxed">Scan a QR code to message me on your favorite chat platform, write an email, or connect via Instagram and Threads.</p>
                     </div>
 
                     <!-- Connect Info Links -->
                     <div class="space-y-3 text-sm">
-                        <div class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-800 bg-slate-950/40">
-                            <i data-lucide="mail" class="w-4 h-4 text-edu-accent shrink-0"></i>
-                            <a href="mailto:learnenglishwithchen@gmail.com" class="text-white hover:text-edu-accentLight transition-colors font-medium break-all">learnenglishwithchen@gmail.com</a>
+                        <div class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-100 bg-edu-bg">
+                            <i data-lucide="mail" class="w-4 h-4 text-edu-accentDark shrink-0"></i>
+                            <a href="mailto:learnenglishwithchen@gmail.com" class="text-slate-800 hover:text-edu-accentDark transition-colors font-medium break-all">learnenglishwithchen@gmail.com</a>
                         </div>
-                        <div class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-800 bg-slate-950/40">
-                            <i data-lucide="instagram" class="w-4 h-4 text-edu-accent shrink-0"></i>
-                            <a href="https://instagram.com/learnenglishwithcheb" target="_blank" rel="noopener noreferrer" class="text-white hover:text-edu-accentLight transition-colors font-medium">@learnenglishwithcheb</a>
+                        <div class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-100 bg-edu-bg">
+                            <i data-lucide="instagram" class="w-4 h-4 text-edu-accentDark shrink-0"></i>
+                            <a href="https://instagram.com/learnenglishwithcheb" target="_blank" rel="noopener noreferrer" class="text-slate-800 hover:text-edu-accentDark transition-colors font-medium">@learnenglishwithcheb</a>
                         </div>
-                        <div class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-800 bg-slate-950/40">
-                            <i data-lucide="hash" class="w-4 h-4 text-edu-accent shrink-0"></i>
-                            <a href="https://threads.net/@learnenglishwithchen" target="_blank" rel="noopener noreferrer" class="text-white hover:text-edu-accentLight transition-colors font-medium">@learnenglishwithchen</a>
+                        <div class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-100 bg-edu-bg">
+                            <i data-lucide="hash" class="w-4 h-4 text-edu-accentDark shrink-0"></i>
+                            <a href="https://threads.net/@learnenglishwithchen" target="_blank" rel="noopener noreferrer" class="text-slate-800 hover:text-edu-accentDark transition-colors font-medium">@learnenglishwithchen</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Interactive Chat Buttons Grid Right -->
-                <div class="lg:col-span-7 flex flex-col justify-center bg-edu-card/45 border border-slate-800/80 rounded-3xl p-6 md:p-8 space-y-6">
-                    <h3 class="text-xl font-bold font-outfit text-white text-center md:text-left">Message Me Directly</h3>
-                    <p class="text-xs text-slate-500 text-center md:text-left">Click on a platform below to view the QR code and scan to add me.</p>
+                <div class="lg:col-span-7 flex flex-col justify-center bg-edu-bg/60 border border-slate-100 rounded-3xl p-6 md:p-8 space-y-6">
+                    <h3 class="text-xl font-bold font-outfit text-slate-800 text-center md:text-left">Scan QR code to Chat</h3>
+                    <p class="text-xs text-slate-400 text-center md:text-left mt-[-10px]">Select a platform to view its scan QR code and connect directly.</p>
                     
                     <div class="grid grid-cols-2 gap-4">
                         <!-- WhatsApp Card -->
-                        <button class="qr-trigger-btn flex flex-col items-center justify-center p-5 rounded-2xl border border-slate-800/60 bg-slate-950/30 hover:bg-slate-950/60 hover:border-emerald-500/50 transition-all duration-300 text-slate-300 hover:text-white" data-qr="whatsapp">
-                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-3">
+                        <button class="qr-trigger-btn flex flex-col items-center justify-center p-5 rounded-2xl border border-slate-200/60 bg-white hover:bg-slate-50 hover:border-emerald-500/50 transition-all duration-300 text-slate-700 hover:text-emerald-600" data-qr="whatsapp">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-500 mb-3">
                                 <i data-lucide="phone" class="w-6 h-6"></i>
                             </div>
                             <span class="text-xs font-bold uppercase tracking-wider">WhatsApp</span>
                         </button>
 
                         <!-- WeChat Card -->
-                        <button class="qr-trigger-btn flex flex-col items-center justify-center p-5 rounded-2xl border border-slate-800/60 bg-slate-950/30 hover:bg-slate-950/60 hover:border-green-500/50 transition-all duration-300 text-slate-300 hover:text-white" data-qr="wechat">
-                            <div class="w-12 h-12 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-400 mb-3">
+                        <button class="qr-trigger-btn flex flex-col items-center justify-center p-5 rounded-2xl border border-slate-200/60 bg-white hover:bg-slate-50 hover:border-green-500/50 transition-all duration-300 text-slate-700 hover:text-green-600" data-qr="wechat">
+                            <div class="w-12 h-12 rounded-xl bg-green-50 border border-green-100 flex items-center justify-center text-green-500 mb-3">
                                 <i data-lucide="message-square" class="w-6 h-6"></i>
                             </div>
                             <span class="text-xs font-bold uppercase tracking-wider">WeChat</span>
                         </button>
 
                         <!-- LINE Card -->
-                        <button class="qr-trigger-btn flex flex-col items-center justify-center p-5 rounded-2xl border border-slate-800/60 bg-slate-950/30 hover:bg-slate-950/60 hover:border-green-400/50 transition-all duration-300 text-slate-300 hover:text-white" data-qr="line">
-                            <div class="w-12 h-12 rounded-xl bg-green-400/10 border border-green-400/20 flex items-center justify-center text-green-400 mb-3">
+                        <button class="qr-trigger-btn flex flex-col items-center justify-center p-5 rounded-2xl border border-slate-200/60 bg-white hover:bg-slate-50 hover:border-green-400/50 transition-all duration-300 text-slate-700 hover:text-green-550" data-qr="line">
+                            <div class="w-12 h-12 rounded-xl bg-green-50 border border-green-100 flex items-center justify-center text-green-400 mb-3">
                                 <i data-lucide="message-circle" class="w-6 h-6"></i>
                             </div>
                             <span class="text-xs font-bold uppercase tracking-wider">LINE</span>
                         </button>
 
                         <!-- KakaoTalk Card -->
-                        <button class="qr-trigger-btn flex flex-col items-center justify-center p-5 rounded-2xl border border-slate-800/60 bg-slate-950/30 hover:bg-slate-950/60 hover:border-amber-400/50 transition-all duration-300 text-slate-300 hover:text-white" data-qr="kakao">
-                            <div class="w-12 h-12 rounded-xl bg-amber-400/10 border border-amber-400/20 flex items-center justify-center text-amber-500 mb-3">
+                        <button class="qr-trigger-btn flex flex-col items-center justify-center p-5 rounded-2xl border border-slate-200/60 bg-white hover:bg-slate-50 hover:border-amber-400/50 transition-all duration-300 text-slate-700 hover:text-amber-600" data-qr="kakao">
+                            <div class="w-12 h-12 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-500 mb-3">
                                 <i data-lucide="smile" class="w-6 h-6"></i>
                             </div>
                             <span class="text-xs font-bold uppercase tracking-wider">KakaoTalk</span>
@@ -512,19 +555,19 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-edu-dark border-t border-slate-900 py-12 px-6 md:px-12 z-10 relative">
+    <footer class="bg-slate-900 text-slate-400 py-12 px-4 sm:px-6 md:px-12 z-10 relative">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
             <!-- Brand -->
             <div class="flex flex-col items-center md:items-start gap-2">
                 <a href="#" class="text-lg font-bold font-outfit tracking-wider text-white hover:text-edu-accent transition-colors flex items-center gap-2">
-                    <img src="assets/avatar.jpg" alt="Teacher Chen Avatar" class="w-8 h-8 rounded-full border border-edu-accent object-cover">
-                    CHEN<span class="text-edu-accent font-extrabold">.</span>
+                    <img src="assets/avatar.jpg" alt="Teacher Chen" class="w-8 h-8 rounded-full border border-edu-accent object-cover">
+                    <span>CHEN<span class="text-edu-accent font-extrabold">.</span></span>
                 </a>
                 <p class="text-xs text-slate-500">© 2026 Teacher Chen. All rights reserved.</p>
             </div>
             
-            <!-- Quick Links -->
-            <ul class="flex flex-wrap items-center justify-center gap-6 text-xs font-bold uppercase tracking-wider text-slate-500">
+            <!-- Links -->
+            <ul class="flex flex-wrap items-center justify-center gap-6 text-xs font-bold uppercase tracking-wider text-slate-400">
                 <li><a href="#" class="hover:text-white transition-colors">Home</a></li>
                 <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
                 <li><a href="#experience" class="hover:text-white transition-colors">Specialties</a></li>
@@ -532,48 +575,46 @@
                 <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
             </ul>
 
-            <!-- Social Media -->
+            <!-- Socials -->
             <div class="flex items-center gap-4">
-                <a href="https://instagram.com/learnenglishwithcheb" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-slate-800 bg-edu-card/40 flex items-center justify-center text-slate-400 hover:text-white hover:border-edu-accent hover:bg-edu-accent/10 transition-all duration-300">
+                <a href="https://instagram.com/learnenglishwithcheb" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-slate-800 bg-slate-850 flex items-center justify-center text-slate-400 hover:text-white hover:border-edu-accent hover:bg-edu-accent/10 transition-all duration-300">
                     <i data-lucide="instagram" class="w-4 h-4"></i>
                 </a>
-                <a href="https://threads.net/@learnenglishwithchen" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-slate-800 bg-edu-card/40 flex items-center justify-center text-slate-400 hover:text-white hover:border-edu-accent hover:bg-edu-accent/10 transition-all duration-300">
+                <a href="https://threads.net/@learnenglishwithchen" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-slate-800 bg-slate-850 flex items-center justify-center text-slate-400 hover:text-white hover:border-edu-accent hover:bg-edu-accent/10 transition-all duration-300">
                     <i data-lucide="hash" class="w-4 h-4"></i>
                 </a>
-                <a href="mailto:learnenglishwithchen@gmail.com" class="w-10 h-10 rounded-full border border-slate-800 bg-edu-card/40 flex items-center justify-center text-slate-400 hover:text-white hover:border-edu-accent hover:bg-edu-accent/10 transition-all duration-300">
+                <a href="mailto:learnenglishwithchen@gmail.com" class="w-10 h-10 rounded-full border border-slate-800 bg-slate-850 flex items-center justify-center text-slate-400 hover:text-white hover:border-edu-accent hover:bg-edu-accent/10 transition-all duration-300">
                     <i data-lucide="mail" class="w-4 h-4"></i>
                 </a>
             </div>
         </div>
     </footer>
 
-    <!-- Interactive Lightbox & Modal Modals -->
-    <!-- QR Code Lightbox Modals -->
-    <div id="qr-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
-        <div class="relative bg-edu-card border border-slate-800 rounded-3xl p-6 md:p-8 max-w-sm w-full mx-4 shadow-2xl transform scale-95 transition-all duration-300 flex flex-col items-center">
-            <!-- Close Button -->
-            <button id="close-qr-btn" class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors">
+    <!-- Interactive Lightbox Modals -->
+    <!-- QR Modal -->
+    <div id="qr-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/60 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
+        <div class="relative bg-white border border-slate-100 rounded-3xl p-6 md:p-8 max-w-sm w-full mx-4 shadow-2xl transform scale-95 transition-all duration-300 flex flex-col items-center">
+            <button id="close-qr-btn" class="absolute top-4 right-4 text-slate-400 hover:text-slate-800 transition-colors">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
             
-            <h4 id="qr-modal-title" class="text-xl font-bold font-outfit text-white mb-2">WhatsApp Contact</h4>
-            <p id="qr-modal-desc" class="text-xs text-slate-500 text-center mb-6">Scan QR code using your WhatsApp camera to connect with Teacher Chen.</p>
+            <h4 id="qr-modal-title" class="text-xl font-bold font-outfit text-slate-900 mb-1">WhatsApp</h4>
+            <p id="qr-modal-desc" class="text-xs text-slate-500 text-center mb-6">Scan QR code using camera to connect.</p>
             
-            <div class="w-64 h-64 bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden flex items-center justify-center p-2 shadow-inner">
+            <div class="w-64 h-64 bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden flex items-center justify-center p-2">
                 <img id="qr-modal-img" src="" alt="Contact QR" class="w-full h-full object-contain">
             </div>
         </div>
     </div>
 
-    <!-- Pricing Lightbox Modals -->
-    <div id="pricing-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/90 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
-        <div class="relative max-w-4xl w-full mx-4 shadow-2xl transform scale-95 transition-all duration-300 flex flex-col items-center">
-            <!-- Close Button -->
-            <button id="close-pricing-btn" class="absolute -top-12 right-0 text-slate-400 hover:text-white transition-colors bg-edu-card/50 p-2 rounded-full border border-slate-800">
+    <!-- Pricing Lightbox -->
+    <div id="pricing-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/60 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
+        <div class="relative max-w-3xl w-full mx-4 shadow-2xl transform scale-95 transition-all duration-300 flex flex-col items-center">
+            <button id="close-pricing-btn" class="absolute -top-12 right-0 text-slate-200 hover:text-white transition-colors bg-slate-900/60 p-2 rounded-full border border-slate-800/40">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
             
-            <div class="w-full rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 shadow-2xl">
+            <div class="w-full rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-2xl p-1">
                 <img src="assets/pricing.jpg" alt="Pricing Chart" class="w-full h-auto object-contain">
             </div>
         </div>
