@@ -45,3 +45,15 @@ body {
 .reveal-delay-200 { transition-delay: 200ms; }
 .reveal-delay-300 { transition-delay: 300ms; }
 .reveal-delay-400 { transition-delay: 400ms; }
+
+/* Sibling hover effect for pricing cards */
+.pricing-container:hover .price-card {
+    opacity: 0.6;
+    transform: scale(0.98);
+}
+
+.pricing-container .price-card:hover {
+    opacity: 1;
+    transform: scale(1.025);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
