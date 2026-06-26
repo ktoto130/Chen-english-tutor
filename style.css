@@ -47,13 +47,18 @@ body {
 .reveal-delay-400 { transition-delay: 400ms; }
 
 /* Sibling hover effect for pricing cards */
+.price-card {
+    transition: opacity 0.25s ease-out, transform 0.25s ease-out, box-shadow 0.25s ease-out, border-color 0.25s ease-out !important;
+}
+
 .pricing-container:hover .price-card {
-    opacity: 0.6;
-    transform: scale(0.98);
+    opacity: 0.55;
+    transform: scale(0.975);
 }
 
 .pricing-container .price-card:hover {
     opacity: 1;
-    transform: scale(1.025);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: scale(1.025) translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: #F472B6; /* Brand accent color */
 }
